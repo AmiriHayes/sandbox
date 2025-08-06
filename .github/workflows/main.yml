@@ -1,9 +1,9 @@
-name: Check Push and Remind
+name: Check for Pushes & Remind - Discord
 
 on:
   schedule:
-    - cron: '0 19 * * *'  # Runs every day at 3 PM ET (9 PM CET)
-  workflow_dispatch:
+    - cron: '0 19 * * *'  # Runs every day at 3 PM ET (7 PM UTC)
+  workflow_dispatch:  # Optional: allows manual runs for testing
 
 jobs:
   remind-if-no-push:
@@ -29,20 +29,16 @@ jobs:
             echo "send=congrats" >> $GITHUB_OUTPUT
           fi
 
-      - name: Send SMS via Twilio (Reminder)
+      - name: Send Discord Reminder
         if: steps.check_push.outputs.send == 'reminder'
         run: |
-          curl -X POST https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json \
-          --data-urlencode "Body=Amiri, this is you from the past, texting you to make sure you push to the sandbox repo today! Okay, bye, have a good day." \
-          --data-urlencode "From=${{ secrets.TWILIO_FROM_NUMBER }}" \
-          --data-urlencode "To=${{ secrets.MY_PHONE_NUMBER }}" \
-          -u ${{ secrets.TWILIO_ACCOUNT_SID }}:${{ secrets.TWILIO_AUTH_TOKEN }}
+          curl -H "Content-Type: application/json" \
+          -d '{"content":"Amiri, this is you from the past, texting you to make sure you push to the sandbox repo today! Okay, bye, have a good day."}' \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}
 
-      - name: Send SMS via Twilio (Congrats)
+      - name: Send Discord Congrats
         if: steps.check_push.outputs.send == 'congrats'
         run: |
-          curl -X POST https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json \
-          --data-urlencode "Body=Nice push to the GitHub today." \
-          --data-urlencode "From=${{ secrets.TWILIO_FROM_NUMBER }}" \
-          --data-urlencode "To=${{ secrets.MY_PHONE_NUMBER }}" \
-          -u ${{ secrets.TWILIO_ACCOUNT_SID }}:${{ secrets.TWILIO_AUTH_TOKEN }}
+          curl -H "Content-Type: application/json" \
+          -d '{"content":"Nice push to the GitHub today."}' \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}
