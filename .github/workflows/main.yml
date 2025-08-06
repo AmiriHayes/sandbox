@@ -1,0 +1,48 @@
+name: Check Push and Remind
+
+on:
+  schedule:
+    - cron: '0 19 * * *'  # Runs every day at 3 PM ET (9 PM CET)
+  workflow_dispatch:
+
+jobs:
+  remind-if-no-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check last push date
+        id: check_push
+        run: |
+          TODAY=$(date -u +"%Y-%m-%d")
+          REPO="AmiriHayes/sandbox"
+          COMMITS=$(curl -s https://api.github.com/repos/$REPO/commits)
+          LAST_COMMIT_DATE=$(echo $COMMITS | jq -r '.[0].commit.committer.date' | cut -d'T' -f1)
+
+          echo "Last commit date: $LAST_COMMIT_DATE"
+          echo "Today: $TODAY"
+
+          if [[ "$TODAY" != "$LAST_COMMIT_DATE" ]]; then
+            echo "No push today."
+            echo "send=reminder" >> $GITHUB_OUTPUT
+          else
+            echo "Push already done today."
+            echo "send=congrats" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send SMS via Twilio (Reminder)
+        if: steps.check_push.outputs.send == 'reminder'
+        run: |
+          curl -X POST https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json \
+          --data-urlencode "Body=Amiri, this is you from the past, texting you to make sure you push to the sandbox repo today! Okay, bye, have a good day." \
+          --data-urlencode "From=${{ secrets.TWILIO_FROM_NUMBER }}" \
+          --data-urlencode "To=${{ secrets.MY_PHONE_NUMBER }}" \
+          -u ${{ secrets.TWILIO_ACCOUNT_SID }}:${{ secrets.TWILIO_AUTH_TOKEN }}
+
+      - name: Send SMS via Twilio (Congrats)
+        if: steps.check_push.outputs.send == 'congrats'
+        run: |
+          curl -X POST https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json \
+          --data-urlencode "Body=Nice push to the GitHub today." \
+          --data-urlencode "From=${{ secrets.TWILIO_FROM_NUMBER }}" \
+          --data-urlencode "To=${{ secrets.MY_PHONE_NUMBER }}" \
+          -u ${{ secrets.TWILIO_ACCOUNT_SID }}:${{ secrets.TWILIO_AUTH_TOKEN }}
