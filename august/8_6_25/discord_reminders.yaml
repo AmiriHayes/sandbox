@@ -1,0 +1,46 @@
+name: Check for Pushes & Remind - Discord
+
+on:
+  schedule:
+  - cron: '0 19 * * *'
+  workflow_dispatch:
+
+jobs:
+  remind-if-no-push:
+    runs-on: ubuntu-latest
+    environment: Discord_Reminders
+
+    steps:
+    - name: Check last push date
+      id: check_push
+      run: |
+        TODAY=$(date -u +"%Y-%m-%d")
+        REPO="AmiriHayes/sandbox"
+        COMMITS=$(curl -s https://api.github.com/repos/$REPO/commits)
+        LAST_COMMIT_DATE=$(echo $COMMITS | jq -r '.[0].commit.commiter.date' | cut -d'T' -f1)
+
+        echo "Last commit date: $LAST_COMMIT_DATE"
+        echo "Today: $TODAY"
+
+        if [[ "$TODAY" != "$LAST_COMMIT_DATE" ]]; then
+          echo "No push today."
+          echo "send=reminder" >> $GITHUB_OUTPUT
+        else
+          echo "Push already done today."
+          echo "send=congrats" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Send Discord Reminder
+      if: steps.check_push.outputs.send == 'reminder'
+      run: |
+        curl -H "Content-Type: application/json" \
+        -d '{"content": "Amiri, this is you from the past, texting you to make sure you push to the GitHub today! Okay, bye, have a good day."}' \
+        ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+    - name: 
+      if: steps.check_push.outputs.send == 'congrats'
+      run: |
+        curl -H "Content-Type: application/json" \
+        -d '{"content": "Nice push to the GitHub today."}' \
+        ${{ secrets.DISCORD_WEBHOOK_URL  }}
+      

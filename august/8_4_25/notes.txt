@@ -1,8 +1,0 @@
-Goal: Practice Linear Regression
-Sources:
-    https://towardsdatascience.com/linear-regression-with-pytorch-eb6dedead817/
-    https://www.youtube.com/watch?v=1BfCnjr_Vjg
-Other:
-- firebase / supabase next
-- websockets next
-- sandbox calendar site next
