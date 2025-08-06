@@ -8,6 +8,7 @@ on:
 jobs:
   remind-if-no-push:
     runs-on: ubuntu-latest
+    environment: Discord_Reminders
 
     steps:
       - name: Check last push date
