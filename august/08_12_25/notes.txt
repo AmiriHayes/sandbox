@@ -1,6 +1,6 @@
 Topic: Cloud Storage
 Goal: Set up simple Firebase App
-Deliverable_Link: coming soon...
+Deliverable_Link: https://simple-form-d8fea.web.app/
 Resources:
   - https://chatgpt.com/share/689ba470-1f88-8004-a242-dde24c986e29
 Todays_Paper: 
