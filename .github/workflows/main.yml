@@ -2,7 +2,7 @@ name: Check for Pushes & Remind - Discord
 
 on:
   schedule:
-    - cron: '15 19 * * *'  # Runs every day at 3 PM ET (7 PM UTC)
+    - cron: '0 18 * * *'  # Runs every day at 3 PM ET (7 PM UTC)
   workflow_dispatch:  # Optional: allows manual runs for testing
 
 jobs:
@@ -14,20 +14,20 @@ jobs:
       - name: Check last push date
         id: check_push
         run: |
-          TODAY=$(date -u +"%Y-%m-%d")
-          REPO="AmiriHayes/sandbox"
-          COMMITS=$(curl -s https://api.github.com/repos/$REPO/commits)
-          LAST_COMMIT_DATE=$(echo $COMMITS | jq -r '.[0].commit.committer.date' | cut -d'T' -f1)
-
-          echo "Last commit date: $LAST_COMMIT_DATE"
-          echo "Today: $TODAY"
-
-          if [[ "$TODAY" != "$LAST_COMMIT_DATE" ]]; then
-            echo "No push today."
-            echo "send=reminder" >> $GITHUB_OUTPUT
-          else
-            echo "Push already done today."
+          MONTH=$(date -u +"%B" | tr '[:upper:]' '[:lower:]') # e.g. august
+          DAY_FOLDER=$(date -u +"%-m_%-d_%y")                 # e.g. 8_12_25
+      
+          # Path to check in the repo
+          TARGET_PATH="$MONTH/$DAY_FOLDER"
+      
+          echo "Checking for folder: $TARGET_PATH"
+      
+          if [ -d "$TARGET_PATH" ]; then
+            echo "Today's folder exists — progress logged."
             echo "send=congrats" >> $GITHUB_OUTPUT
+          else
+            echo "No folder for today found — time to code!"
+            echo "send=reminder" >> $GITHUB_OUTPUT
           fi
 
       - name: Send Discord Reminder
