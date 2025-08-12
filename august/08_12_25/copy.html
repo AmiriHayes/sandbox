@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Generic Form Questions</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f5f5f5;
+    }
+    #form-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    .star {
+      font-size: 30px;
+      cursor: pointer;
+      color: #ccc;
+      user-select: none;
+    }
+    .star.selected {
+      color: gold;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="form-container">
+  <button id="login-btn">Sign in with Google</button>
+  <div id="feedback-form" style="display:none;">
+    <h2>Generic Form Questions</h2>
+    <div id="stars"></div>
+    <button id="submit-btn">Submit</button>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBd36fpDcBPBCStYawa1LRFnEX_wxyexI4",
+    authDomain: "simple-form-d8fea.firebaseapp.com",
+    projectId: "simple-form-d8fea",
+    storageBucket: "simple-form-d8fea.firebasestorage.app",
+    messagingSenderId: "315960810448",
+    appId: "1:315960810448:web:4d8ca277ea8d5d808ab7d5",
+    measurementId: "G-H77DBGEDL5"
+  };
+
+  const app = initializeApp(firebaseConfig)
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const loginBtn = document.getElementById("login-btn");
+  const feedbackForm = document.getElementById("feedback-form")
+  const starsDiv = document.getElementById("stars");
+  const submitBtn = document.getElementById("submit-btn");
+
+  let selectedRating = 0;
+  let currentUser = null;
+
+  // Create stars UI
+  for (let i = 1; i <= 5; i++) {
+    const star = document.createElement("span");
+    star.textContent = "★";
+    star.classList.add("star");
+    star.addEventListener("click", () => {
+      selectedRating = i;
+      document.querySelectorAll(".star").forEach((s, idx) => {
+        s.classList.toggle("selected", idx < i);
+      });
+    });
+    starsDiv.appendChild(star);
+  }
+
+  // Login with Google
+  loginBtn.addEventListener("click", async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      currentUser = result.user;
+      loginBtn.style.display = "none";
+      feedbackForm.style.display = "block";
+    } catch (err) {
+      console.error("Login error: ", err);
+      alert("Login failed, try again.");
+    }
+  });
+
+  // Submit rating to Firestore
+  submitBtn.addEventListener("click", async () => {
+    if (!selectedRating) {
+      alert("Please select a rating first.");
+      return;
+    }
+    try {
+      await addDoc(collection(db, "feedback"), {
+        userId: currentUser.uid,
+        userName: currentUser.displayName,
+        rating: selectedRating,
+        timestamp: serverTimestamp()
+      });
+      alert("Thanks for your feedback!");
+      selectedRating = 0;
+      document.querySelectorAll(".star").forEach(s => s.classList.remove("selected"));
+    } catch (err) {
+      console.error("Error writing documents: ", err)
+      alert("Error saving feedback.");
+    }
+  })
+
+
+</script>
+
+</body>
+</html>
