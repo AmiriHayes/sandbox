@@ -1,0 +1,9 @@
+Topic: Cloud Storage
+Goal: Set up simple Firebase App
+Deliverable_Link: coming soon...
+Resources:
+  - X
+Todays_Paper: 
+Todays_Paper_Link: 
+Other_Notes: |
+  more notes

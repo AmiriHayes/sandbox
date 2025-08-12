@@ -1,0 +1,81 @@
+Projects
+    Quote Sharing Social Media App w/ React
+	React dashboard for stock prices
+	Store IoT sensor data in AWS S3
+    Build ESP32 based real-time IoT temperature dashboard
+	Build a CI/CD pipeline with GitHub Actions and AWS
+Data
+	Practice pandas readCSV and readJSON w/ cleaning
+    Practice pandas groupy aggregations
+    Create pivot tables & filtering with pandas
+	Practice plotting data with matplotlib (heatmaps, bar charts, ...)
+    Practice bash scripting for Github Actions
+	Statistics: Calculate rolling averages, detect ourliers w/ IQR
+	Practice seaborn for visualization
+	Profile datasets with pandas_profiling
+	Build a data dictionary automation function
+Machine Learning
+    link: NJIT DS677 Course Notes | https://d2l.ai/chapter_introduction/index.html
+	Train linear & logistic regression with scikit-learn
+	Implement k-nearest neighbors from scratch
+	Train decision tree & random forest classifier
+	Practice using gradient boosting via XGBoost
+	Tune hyperparameters with GridSearchCV
+	Build confusion matrix, metrics, visualize ROC curves
+	Implement TF-IDF text vectorization
+	Train Naive Bayes classifier for text
+	Perform clustering with k-means
+	Train simple neural network from scratch
+	Save, load, serve ML model via Flask + host API
+Cloud Storage
+    Deploy a Flask API to AWS Lambda
+	Upload file to AWS S3 with boto3
+	Download file from S3, delete object from S3
+	Configure S3 bucket lifecycle rules
+	Use AWS CLI for S3 operations, enable versioning
+	Stream large file uploads
+	Trigger Lambda from S3 events
+	Encrypt S3 objects and connect to AWS Athena
+	Serve static website from S3 via terminal
+	Batch upload with boto3
+    Upload file to Google Cloud Storage with Python
+    Download object from GCS
+	Set GCS object ACL
+    Trigger Cloud Function from GCS events
+	Upload images to Firebase Storage
+	Generate Firebase Storage download URL
+Robotics ESP32
+	Read temperature sensor data
+	Control LED with ESP32
+	Connect ESP32 to Wi-Fi
+	Send sensor data to MQTT broker
+	Read analog sensor values
+	Control servo motor
+	Interface with ultrasonic sensor
+	Display data on OLED screen
+	Log sensor data to SD card
+	Trigger buzzer on condition
+	Implement over-the-air firmware update
+	Send HTTP POST from ESP32
+	Use interrupts for button press
+	Measure battery voltage
+	Control stepper motor
+	Implement basic PID control
+	Connect ESP32 to AWS IoT Core
+	Publish data to MQTT topic
+	Subscribe to MQTT topic for commands
+	Build ESP32 web server
+Fullstack
+	Connect API to PostgreSQL DB
+	React frontend with CRUD operations
+	Use React Router for navigation
+	Implement JWT authentication
+	Deploy app to AWS EC2
+	Practice JS & Firebase / Supabase
+	Implement file upload API
+	WebSockets Chat Application
+	Use Redux for state management
+	Stripe payment website 
+	Implement dark mode toggle
+	Containerize app with Docker
+	Deploy Docker container to AWS ECS
