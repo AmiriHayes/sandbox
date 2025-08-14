@@ -1,4 +1,4 @@
-Topic: Cloud Storage
+Topic: Cloud Storage w/ Firebase
 Goal: Set up simple Firebase App
 Deliverable_Link: https://simple-form-d8fea.web.app/
 Resources:
