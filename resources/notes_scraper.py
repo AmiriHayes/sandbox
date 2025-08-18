@@ -53,7 +53,7 @@ for folder in last_five:
     else:
         notes_content += f"---  Read up on: {read_up_on}  \n\n"
 
-output_file = resources_dir.parent / "Readme.md"
+output_file = Path("/home/runner/work/sandbox/sandbox/Readme.md")
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(notes_content)
 
