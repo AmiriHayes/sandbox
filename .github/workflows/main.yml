@@ -58,7 +58,7 @@ jobs:
       - name: Run notes scraper
         run: python resources/notes_scraper.py
 
-      - name: Commit and push updated Readme.ipynb
+      - name: Commit and push updated Readme.md
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
