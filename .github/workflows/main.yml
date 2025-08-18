@@ -18,7 +18,7 @@ jobs:
         id: check_push
         run: |
           MONTH=$(date -u +"%B" | tr '[:upper:]' '[:lower:]')  # e.g. august
-          DAY_FOLDER=$(date -u +"%m/%d/%y")                    # e.g. 08/04/25
+          DAY_FOLDER=$(date -u +"%m_%d_%y")                    # e.g. 08/04/25
       
           # Path to check in the repo
           TARGET_PATH="$MONTH/$DAY_FOLDER"
