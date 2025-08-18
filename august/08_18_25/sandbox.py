@@ -4,11 +4,10 @@ import datetime
 import yaml
 from pathlib import Path
 
-resources_dir = Path.cwd()
 today = datetime.date.today()
-
 month_name = today.strftime("%B").lower()
-month_dir = resources_dir.parent / month_name
+base_dir = Path(__file__).resolve().parents[1]
+month_dir = base_dir / "august"
 
 day_folders = []
 for folder in month_dir.iterdir():
@@ -54,7 +53,7 @@ for folder in last_five:
     else:
         notes_content += f"---  Read up on: {read_up_on}  \n\n"
 
-output_file = resources_dir.parent / "Readme.md"
+output_file = base_dir.parent / "test.md"
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(notes_content)
 
