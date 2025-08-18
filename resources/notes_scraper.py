@@ -4,11 +4,10 @@ import datetime
 import yaml
 from pathlib import Path
 
-resources_dir = Path.cwd()
 today = datetime.date.today()
-
 month_name = today.strftime("%B").lower()
-month_dir = resources_dir.parent / month_name
+base_dir = Path("/home/runner/work/sandbox/sandbox")
+month_dir = base_dir / month_name
 
 day_folders = []
 for folder in month_dir.iterdir():
