@@ -6,6 +6,12 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>08 / 18 / 25: </em>  
+---  Topic: DevOps CI/CD  
+---  Worked on: Automated ReadMe Updates w/ latest code pushes  
+---  Read up on: Graph_Theory_4  
+---  Link: https://github.com/AmiriHayes/sandbox/blob/main/Readme.md  
+
 <em>08 / 17 / 25: </em>  
 ---  Topic: Data Engineering  
 ---  Worked on: Design, implement and host more complex API w/ AWS  
@@ -29,9 +35,4 @@
 ---  Worked on: Final Homophily Regression Project for DS677  
 ---  Read up on: None  
 ---  Link: https://docs.google.com/document/d/1vJFey6FFxNlGH699vmJjwjeuPvaqbNFr_kj6S99aqzs/edit?tab=t.0  
-
-<em>08 / 07 / 25: </em>  
----  Topic: Machine Learning w/ Graphs  
----  Worked on: Practice graph homophily regression  
----  Read up on: None  
 
