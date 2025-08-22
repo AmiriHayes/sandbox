@@ -6,9 +6,15 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>08 / 21 / 25: </em>  
+---  Topic: Data Engineering  
+---  Worked on: Playing around w/ programmatic Google Sheets  
+---  Read up on: N/A (for shame)  
+---  Link: https://docs.google.com/spreadsheets/d/13NriXejYairknIeESFsql4SMZNm05TKIKwxJyG4flbM/edit?usp=sharing  
+
 <em>08 / 19 / 25: </em>  
 ---  Topic: Data Engineering  
----  Worked on: Practice w/ Python Pandas Advanced Commands  
+---  Worked on: Practice w/ Pandas Advanced Commands  
 ---  Read up on: None  
 
 <em>08 / 18 / 25: </em>  
@@ -28,10 +34,4 @@
 ---  Worked on: Practice Basic API Stuff w/ Express  
 ---  Read up on: Graph_Theory_1_2  
 ---  Link: http://localhost:3000/ (hosting similar api somewhere |maybe aws| another day)  
-
-<em>08 / 12 / 25: </em>  
----  Topic: Cloud Storage w/ Firebase  
----  Worked on: Set up simple Firebase App  
----  Read up on: None  
----  Link: https://simple-form-d8fea.web.app/  
 
