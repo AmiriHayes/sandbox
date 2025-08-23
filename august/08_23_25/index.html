@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FullCalendar Example</title>
+        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 40px;
+                padding: 0;
+            }
+            #calendar {
+                max-width: 650px;
+                margin: 0 auto;
+            }
+            .fc-customTitle-button {
+                font-size: 2em;
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="calendar"></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                left: '',
+                center: 'customTitle',
+                right: 'prev,next'
+                },
+                customButtons: {
+                customTitle: {
+                    text: '',
+                }
+                },
+                datesSet: function(info) {
+                    const month = info.start.toLocaleString('default', { month: 'long' });
+                    const year = info.start.getFullYear();
+                    const title = `Amiri Hayes Sandbox Repo Progress: ${month} ${year}`;
+
+                    const titleBtn = document.querySelector('.fc-customTitle-button');
+                    titleBtn.innerText = title;
+                    titleBtn.onclick = () => {
+                        window.open("https://github.com/AmiriHayes/sandbox", "_blank");
+                    };
+                },
+                dateClick: function(info) {
+                alert('You clicked on ' + info.dateStr);
+                }
+            });
+            calendar.render();
+            });
+        </script>
+    </body>
+</html>
