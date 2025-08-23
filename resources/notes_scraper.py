@@ -29,7 +29,7 @@ last_five = [f for d, f in reversed(day_folders) if d <= today][:5]
 notes_content = ""
 notes_content += "# Amiri's Sandbox Repository\n\n"
 notes_content += "**Goal:** Make a folder every day and write ~100 lines of code in it to practice a skill or learn more about a topic in a manageable way. Topics include ML, data engineering, cloud tech, full stack devlopment and so on. <br> \n"
-notes_content += "\n<!-- **Repo Docs Site:** [Docs History](www.google.com) <br><br> -->\n\n"
+notes_content += "\n **Repo Docs Site:** [Docs History](https://amirihayes.github.io/sandbox/) <br><br> \n\n"
 notes_content += "#### Automatic Updates | Last 5 Days: \n\n"
 
 for folder in last_five:
