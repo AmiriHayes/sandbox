@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hayes Sandbox Site</title>
+        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 40px;
+                padding: 0;
+            }
+            #calendar {
+                max-width: 650px;
+                margin: 0 auto;
+            }
+            .fc-customTitle-button {
+                font-size: 2em;
+                font-weight: bolder;
+            }
+            #modal {
+                display: none;
+                position: fixed;
+                top: 10%;
+                left: 10%;
+                width: 80%;
+                height: 80%;
+                background: white;
+                border: 2px solid black;
+                padding: 20px;
+                overflow: auto;
+                z-index: 1000;
+            }
+            #modal-close {
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="calendar"></div>
+        <div id="modal">
+            <button id="modal-close">Close</button>
+            <div id="modal-content"></div>
+        </div>
+        <script>
+
+            async function loadCalendarData() {
+                const response = await fetch('calendar.jsonl');
+                const text = await response.text();
+                const lines = text.split('\n').filter(Boolean);
+                return lines.map(line => JSON.parse(line));
+            }
+
+            function parseEvent(note) {
+                const match = note.day.match(/(\d{2})_(\d{2})_(\d{2})/);
+                if (!match) return null;
+                const [_, month, day, yearSuffix] = match;
+                const fullYear = '20' + yearSuffix;
+                const dateStr = `${fullYear}-${month}-${day}`;
+                return {
+                    title: note.Topic || "No Topic",
+                    start: dateStr,
+                    extendedProps: note
+                }
+            }
+
+            function showModal(note) {
+                const modal = document.getElementById('modal');
+                const content = document.getElementById('modal-content');
+                content.innerHTML = `
+                    <h2>${note.Topic}</h2>
+                    <p><strong>Goal:</strong> ${note.Goal || ''}</p>
+                    <p><strong>Deliverable:</strong> ${note.Deliverable_Link ? `<a href="${note.Deliverable_Link}" target="_blank">Link</a>` : 'N/A'}</p>
+                    <p><strong>Resources:</strong> ${note.Resources ? note.Resources.join(', ') : ''}</p>
+                    <p><strong>Paper:</strong> ${note.Todays_Paper ? `<a href="${note.Todays_Paper_Link}" target="_blank">${note.Todays_Paper}</a>` : 'N/A'}</p>
+                    <p><strong>Other Notes:</strong><br>${note.Other_Notes || ''}</p>
+                `;
+                modal.style.display = 'block';
+            }
+
+            document.getElementById('modal-close').onclick = () => {
+                document.getElementById('modal').style.display = 'none';
+            }
+
+            document.addEventListener('DOMContentLoaded', async function() {
+                const calendarEl = document.getElementById('calendar');
+                const notes = await loadCalendarData();
+                const events = notes.map(parseEvent).filter(Boolean);
+
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    headerToolbar: {
+                        left: '',
+                        center: 'customTitle',
+                        right: 'prev,next'
+                    },
+                    customButtons: {
+                        customTitle: { text: '' }
+                    },
+                    events: events,
+                    dateClick: function(info) {
+                        const clickedDate = info.dateStr;
+                        const note = events.find(ev => ev.start === clickedDate);
+                        if (note) showModal(note.extendedProps);
+                    },
+                    datesSet: function(info) {
+                        const month = info.start.toLocaleString('default', { month: 'long' });
+                        const year = info.start.getFullYear();
+                        const title = `Amiri Hayes Sandbox Repo Progress: ${month} ${year}`;
+                        const titleBtn = document.querySelector('.fc-customTitle-button');
+                        titleBtn.innerText = title;
+                        titleBtn.onclick = () => window.open("https://github.com/AmiriHayes/sandbox", "_blank");
+                    }
+                });
+
+                calendar.render();
+            });
+        </script>
+    </body>
+</html>
