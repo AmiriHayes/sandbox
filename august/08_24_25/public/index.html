@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #FAF9F6;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        #colorSection {
+            display: none;
+            margin-bottom: 1rem;
+        }
+        input[type="color"] {
+            width: 60px;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+        }
+        button {
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Welcome to QuoteApp</h2>
+        <div id="colorSection" style="display:none">
+            <p>Pick your display color:</p>
+            <input type="color" id="userColor" value="#0077cc">
+            <button id="confirmColor">Confirm</button>
+        </div>
+        <button id="googleSignIn">Sign in with Google</button>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBiPZ-0U1CZHbGzn8JS2cFCPMVK_5ftHyc",
+            authDomain: "quote-app-a8c50.firebaseapp.com",
+            projectId: "quote-app-a8c50",
+            storageBucket: "quote-app-a8c50.firebasestorage.app",
+            messagingSenderId: "1011977846276",
+            appId: "1:1011977846276:web:d4a30ccef5556fe3713f51",
+            measurementId: "G-2C7W5JCJDD"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const provider = new GoogleAuthProvider();
+
+        const colorSection = document.getElementById("colorSection");
+        const userColorInput = document.getElementById("userColor");
+        const signInButton = document.getElementById("googleSignIn");
+
+        // async function handleSignIn() {
+        //     try {
+        //         const result = await signInWithPopup(auth, provider);
+        //         const user = result.user;
+        //         if (!user) return;
+
+        //         const userRef = doc(db, "users", user.uid);
+        //         const userSnap = await getDoc(userRef);
+
+        //         if (!userSnap.exists()) {
+        //             // Show color section
+        //             colorSection.style.display = "block";
+
+        //             // Wait for user to click "Confirm"
+        //             await new Promise(resolve => {
+        //                 document.getElementById("confirmColor").addEventListener("click", () => {
+        //                     resolve(userColorInput.value);
+        //                 }, { once: true });
+        //             }).then(async (selectedColor) => {
+        //                 // Create user in Firestore
+        //                 await setDoc(userRef, {
+        //                     name: user.displayName || "Unknown",
+        //                     email: user.email,
+        //                     color: selectedColor,
+        //                     groups: []
+        //                 });
+
+        //                 // Redirect to member.html
+        //                 window.location.href = "member.html";
+        //             });
+        //         } else {
+        //             // Existing user: redirect immediately
+        //             window.location.href = "member.html";
+        //         }
+
+        //     } catch (error) {
+        //         console.error("Error signing in:", error);
+        //     }
+        // }
+
+        async function handleSignIn() {
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+                if (!user) return;
+
+                const userRef = doc(db, "users", user.uid);
+                const userSnap = await getDoc(userRef);
+
+                if (userSnap.exists()) {
+                    // Existing user: redirect immediately
+                    window.location.href = "member.html";
+                } else {
+                    // New user: show color picker
+                    colorSection.style.display = "block";
+
+                    const selectedColor = await new Promise(resolve => {
+                        document.getElementById("confirmColor").addEventListener("click", () => {
+                            resolve(userColorInput.value);
+                        }, { once: true });
+                    });
+
+                    // Create new user in Firestore
+                    await setDoc(userRef, {
+                        name: user.displayName || "Unknown",
+                        email: user.email,
+                        color: selectedColor,
+                        groups: []
+                    });
+
+                    // Redirect after creation
+                    window.location.href = "member.html";
+                }
+            } catch (error) {
+                console.error("Error signing in:", error);
+            }
+        }
+
+
+        signInButton.addEventListener("click", handleSignIn);
+
+        // Optional: redirect if already signed in
+        // onAuthStateChanged(auth, (user) => {
+        //     if (user) window.location.href = "member.html";
+        // });
+    </script>
+</body>
+</html>

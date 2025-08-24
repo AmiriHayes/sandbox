@@ -1,0 +1,87 @@
+
+i'm making a quote app where users can join groups and share quotes. i'm building with html/css/js and firebase.
+in general, everything is centered and only the middle 80% of the page is filled. the side 10% are reserved for white space. also use rounding.
+can you fill out the css (and js if necessary) for this document (html below). i'm making a simple design. don't change the html structure very much.
+the top class is one horizontal line with buttons dark gray buttons and off white colored texts and some padding.
+the header is the color of the current user. if the quote id is the latest one then display first span, otherwise second span 
+for quote section, the default color is darkgray and quote-title and user-quote are both user-color. stuff inside quote class is color off white. button is user-color.
+
+firestore schema:
+""""
+users (collection) 
+  userId (document)
+    name: string
+    email: string
+    color: string
+    groups: [groupId1, groupId2, ...]
+
+groups (collection)
+  groupId (document)
+    name: string
+    members: [userId1, userId2, ...]
+    invitations: [userId1, userId2, ...]
+    quotes (subcollection)
+      quoteId (document)
+        text: string
+        author: string
+        link: string
+        source: string
+        timestamp: timestamp
+""""
+
+current html content:
+""""
+<!DOCTYPE html>
+<html>
+    <!-- quote page for a logged in user -->
+    <head>
+        <style>
+            body {
+                background-color: #FAF9F6;
+                font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top">
+            <div class="leftarrow">&larr;</div>
+            <button class="addnew">&plus; add new quote</button>
+            <button class="returnhome">return to home</button>
+            <div class="rightarrow">&rarr;</div>
+        </div>
+        <div class="header">
+            <span>Latest Quote!</span>
+            <span>{group} Quotes</span>
+        </div>
+        <div class="quote_section">
+            <div class="quote-title"></div>
+            <span class="user-quote">{date} from {username}</span>
+            <div class="quote">
+                <div class="quote-text">{quote}</div>
+                <div>&mdash; {author}, {source}</div>
+                <button>MORE ABOUT {author}</button>
+            </div>
+            <diV class="quote-footer">[ {group} Quote # {quote_id}</diV>
+        </div>
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
+            import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyBiPZ-0U1CZHbGzn8JS2cFCPMVK_5ftHyc",
+                authDomain: "quote-app-a8c50.firebaseapp.com",
+                projectId: "quote-app-a8c50",
+                storageBucket: "quote-app-a8c50.firebasestorage.app",
+                messagingSenderId: "1011977846276",
+                appId: "1:1011977846276:web:d4a30ccef5556fe3713f51",
+                measurementId: "G-2C7W5JCJDD"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            const db = getFirestore(app);
+        </script>
+    </body>
+</html>
+""""
