@@ -2,9 +2,15 @@
 
 **Goal:** Make a folder every day and write ~100 lines of code in it to practice a skill or learn more about a topic in a manageable way. Topics include ML, data engineering, cloud tech, full stack devlopment and so on. <br> 
 
-<!-- **Repo Docs Site:** [Docs History](www.google.com) <br><br> -->
+ **Repo Docs Site:** [Docs History](https://amirihayes.github.io/sandbox/) <br><br> 
 
 #### Automatic Updates | Last 5 Days: 
+
+<em>08 / 23 / 25: </em>  
+---  Topic: Web Development  
+---  Worked on: Make a Calendar Site out of my YAML notes  
+---  Read up on: None  
+---  Link: https://amirihayes.github.io/sandbox/  
 
 <em>08 / 21 / 25: </em>  
 ---  Topic: Data Engineering  
@@ -28,10 +34,4 @@
 ---  Worked on: Design, implement and host more complex API w/ AWS  
 ---  Read up on: Graph_Theory_3  
 ---  Link: coming_soon  
-
-<em>08 / 14 / 25: </em>  
----  Topic: Data Engineering  
----  Worked on: Practice Basic API Stuff w/ Express  
----  Read up on: Graph_Theory_1_2  
----  Link: http://localhost:3000/ (hosting similar api somewhere |maybe aws| another day)  
 
