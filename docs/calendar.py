@@ -7,10 +7,10 @@ from pathlib import Path
 
 today = datetime.date.today()
 month_name = today.strftime("%B").lower()
-base_dir = Path("./")
+base_dir = Path("..").resolve()
 month_dir = base_dir / month_name
-print(f"base dir: {base_dir}")
-print(f"month dir: {month_dir}")
+print(f"base dir: {base_dir.cwd()}")
+print(f"month dir: {month_dir.cwd()}")
 
 day_folders = []
 for folder in month_dir.iterdir():
@@ -38,7 +38,8 @@ for folder in previous_days:
     notes_content += str(json.dumps(data))
     notes_content += "\n"
 
-output_file = Path("docs/calendar.jsonl")
+project_root = Path(__file__).parent.parent.resolve()
+output_file = project_root / "docs/calendar.jsonl"
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(notes_content)
 
