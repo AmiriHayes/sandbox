@@ -6,6 +6,12 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>08 / 24 / 25: </em>  
+---  Topic: Web Development  
+---  Worked on: Start Developing a Quote Sharing Social Media App (WIP)  
+---  Read up on: None  
+---  Link: https://quote-app-a8c50.web.app/member.html  
+
 <em>08 / 23 / 25: </em>  
 ---  Topic: Web Development  
 ---  Worked on: Make a Calendar Site out of my YAML notes  
@@ -28,10 +34,4 @@
 ---  Worked on: Automated ReadMe Updates w/ latest code pushes  
 ---  Read up on: Graph_Theory_4  
 ---  Link: https://github.com/AmiriHayes/sandbox/blob/main/Readme.md  
-
-<em>08 / 17 / 25: </em>  
----  Topic: Data Engineering  
----  Worked on: Design, implement and host more complex API w/ AWS  
----  Read up on: Graph_Theory_3  
----  Link: coming_soon  
 
