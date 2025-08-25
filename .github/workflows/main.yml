@@ -60,6 +60,9 @@ jobs:
       - name: Run notes scraper
         run: python resources/notes_scraper.py
 
+      - name: Updated calendar Site
+        run: python docs/calendar.py
+
       - name: Commit and push updated Readme.md
         run: |
           git config --global user.name "github-actions[bot]"

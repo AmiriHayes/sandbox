@@ -3,11 +3,15 @@
 import datetime
 import yaml
 import json
+import os
 from pathlib import Path
 
 today = datetime.date.today()
 month_name = today.strftime("%B").lower()
-base_dir = Path("..").resolve()
+if os.environ.get("GITHUB_ACTIONS"):
+    base_dir = Path("/home/runner/work/sandbox/sandbox")
+else:
+    base_dir = Path("..").resolve()
 month_dir = base_dir / month_name
 print(f"base dir: {base_dir.cwd()}")
 print(f"month dir: {month_dir.cwd()}")
@@ -38,8 +42,12 @@ for folder in previous_days:
     notes_content += str(json.dumps(data))
     notes_content += "\n"
 
-project_root = Path(__file__).parent.parent.resolve()
-output_file = project_root / "docs/calendar.jsonl"
+if os.environ.get("GITHUB_ACTIONS"):
+    output_file = Path("/home/runner/work/sandbox/sandbox/docs/calendar.jsonl")
+else:
+    project_root = Path(__file__).parent.parent.resolve()
+    output_file = project_root / "docs/calendar.jsonl"
+
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(notes_content)
 
