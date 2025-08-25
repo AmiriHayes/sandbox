@@ -6,6 +6,12 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>08 / 25 / 25: </em>  
+---  Topic: DevOps / Automation  
+---  Worked on: Looked into python reportlab library for automating reports  
+---  Read up on: None  
+---  Link: N/A  
+
 <em>08 / 24 / 25: </em>  
 ---  Topic: Web Development  
 ---  Worked on: Start Developing a Quote Sharing Social Media App (WIP)  
@@ -28,10 +34,4 @@
 ---  Topic: Data Engineering  
 ---  Worked on: Practice w/ Pandas Advanced Commands  
 ---  Read up on: None  
-
-<em>08 / 18 / 25: </em>  
----  Topic: DevOps CI/CD  
----  Worked on: Automated ReadMe Updates w/ latest code pushes  
----  Read up on: Graph_Theory_4  
----  Link: https://github.com/AmiriHayes/sandbox/blob/main/Readme.md  
 
