@@ -108,7 +108,7 @@
                 datesSet: function(info) {
                     const month = info.start.toLocaleString('default', { month: 'long' });
                     const year = info.start.getFullYear();
-                    const title = `Amiri Hayes Sandbox Repo Progress: ${month} ${year}`;
+                    const title = `Amiri Hayes Sandbox Repo Progress: ${info.view.title}`;
                     const titleBtn = document.querySelector('.fc-customTitle-button');
                     titleBtn.innerText = title;
                     titleBtn.onclick = () => window.open("https://github.com/AmiriHayes/sandbox", "_blank");
