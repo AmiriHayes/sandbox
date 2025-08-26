@@ -102,19 +102,35 @@ class EMNISTCanvas {
                 this.hideResults();
             }
 
+
             getImageData() {
                 // Get image data and convert to grayscale array
                 const imageData = this.ctx.getImageData(0, 0, 28, 28);
                 const pixels = imageData.data;
                 const grayscale = [];
-
+                
+                // Convert to grayscale first
                 for (let i = 0; i < pixels.length; i += 4) {
                     const gray = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
                     grayscale.push((255 - gray) / 255);
                 }
-
-                return grayscale;
+                
+                // Flip the image upside down by reversing row order
+                const flipped = [];
+                const width = 28;
+                const height = 28;
+                
+                for (let row = height - 1; row >= 0; row--) {
+                    for (let col = 0; col < width; col++) {
+                        const index = row * width + col;
+                        flipped.push(grayscale[index]);
+                    }
+                }
+                
+                return flipped;
             }
+
+
             hideResults() {
                 document.getElementById('results').style.display = 'none';
             }
