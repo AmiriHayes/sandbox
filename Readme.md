@@ -6,6 +6,12 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>08 / 26 / 25: </em>  
+---  Topic: Machine Learning  
+---  Worked on: Trained & hosted a CNN model w/ 90+% accuracy and low latency for classifying alphanumeric digits  
+---  Read up on: None  
+---  Link: https://alphanumericml.netlify.app/  
+
 <em>08 / 25 / 25: </em>  
 ---  Topic: DevOps / Automation  
 ---  Worked on: Looked into python reportlab library for automating reports  
@@ -29,9 +35,4 @@
 ---  Worked on: Playing around w/ programmatic Google Sheets  
 ---  Read up on: N/A (for shame)  
 ---  Link: https://docs.google.com/spreadsheets/d/13NriXejYairknIeESFsql4SMZNm05TKIKwxJyG4flbM/edit?usp=sharing  
-
-<em>08 / 19 / 25: </em>  
----  Topic: Data Engineering  
----  Worked on: Practice w/ Pandas Advanced Commands  
----  Read up on: None  
 
