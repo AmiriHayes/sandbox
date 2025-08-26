@@ -10,9 +10,10 @@ today = datetime.date.today()
 month_name = today.strftime("%B").lower()
 if os.environ.get("GITHUB_ACTIONS"):
     base_dir = Path("/home/runner/work/sandbox/sandbox")
+    month_dir = Path("/home/runner/work/sandbox/sandbox/august")
 else:
-    base_dir = Path("..").resolve()
-month_dir = base_dir / month_name
+    base_dir = Path("..").resolve() 
+    month_dir = Path(r"C:\Users\amkah\OneDrive\Documents\GitHub\sandbox\august")
 print(f"base dir: {base_dir.cwd()}")
 print(f"month dir: {month_dir.cwd()}")
 

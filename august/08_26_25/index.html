@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMNIST Character Classifier</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f6f7eb;
+            color: #393e41;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 800px;
+        }
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #393e41;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .instruction {
+            font-size: 1.1rem;
+            color: #393e41;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .github-button {
+            background-color: #92140c;
+            color: #f6f7eb;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #393e41;
+        }
+        .github-button:hover {
+            background-color: #f6f7eb;
+            color: #770e06;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(13, 59, 102, 0.2);
+        }
+        .canvas-container {
+            position: relative;
+            width: 90vw;
+            max-width: 500px;
+            aspect-ratio: 1;
+        }
+        #drawingCanvas {
+            width: 100%;
+            height: 100%;
+            border: 3px solid #393e41;
+            border-radius: 12px;
+            cursor: crosshair;
+            background-color: #FAF9F6;
+            box-shadow: 0 4px 12px rgba(57, 62, 65, 0.1);
+        }
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            background-color: #0d3b66;
+            color: #f6f7eb;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0a2f52;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(13, 59, 102, 0.3);
+        }
+        .btn:disabled {
+            background-color: #8a9ba8;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .clear-btn {
+            background-color: #393e41;
+        }
+        .clear-btn:hover {
+            background-color: #2a2f32;
+        }
+        .results {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+            /* margin-top: 30px; */
+        }
+        .results-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2a2f32;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .results-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .dash {
+            width: 60px;
+            height: 3px;
+            background-color: #606c38;
+            border-radius: 2px;
+        }
+        .result-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #606c38;
+            color: #f6f7eb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(13, 59, 102, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .result-circle:hover {
+            transform: scale(1.05);
+        }
+        .character {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .confidence {
+            font-size: 1.7rem;
+            opacity: 0.9;
+        }
+        .loading {
+            display: none;
+            color: #0d3b66;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        .error {
+            display: none;
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #f8bbd9;
+            margin: 20px 0;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            .results-container {
+                gap: 20px;
+            }
+            .result-circle {
+                width: 100px;
+                height: 100px;
+            }
+            .character {
+                font-size: 2rem;
+            }
+            .dash {
+                width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Title Section -->
+    <div class="section">
+        <h1 class="title">Alphanumeric Character Predictions</h1>
+        <p class="instruction">NOTE: Characters included in training were 0-9, a-z and A-Z. Training Accuracy was 80%</p>
+        <a href="https://github.com/AmiriHayes/sandbox/tree/main/august/08_25_25" class="github-button" target="_blank">
+            View all code in GitHub
+        </a>
+    </div>
+
+    <!-- Canvas Section -->
+    <div class="section">
+        <div class="canvas-container">
+            <canvas id="drawingCanvas" width="28" height="28"></canvas>
+        </div>
+        <div class="controls">
+            <button id="clearBtn" class="btn clear-btn">Clear Canvas</button>
+            <button id="submitBtn" class="btn">Predict Character</button>
+        </div>
+        <div id="loading" class="loading">Processing your drawing...</div>
+        <div id="error" class="error"></div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results" class="section results">
+        <h2 class="results-title">Prediction Results:<br>Character & Confidence</h2>
+        <div class="results-container">
+            <div class="dash"></div>
+            <div class="result-circle">
+                <div id="predictedChar" class="character">?</div>
+            </div>
+            <div class="result-circle">
+                <div id="confidencePercent" class="confidence">0%</div>
+            </div>
+            <div class="dash"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
