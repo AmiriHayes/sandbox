@@ -122,7 +122,7 @@ class EMNISTCanvas {
 
         class PredictionAPI {
             constructor() {
-                this.apiUrl = 'http://127.0.0.1:8000/predict';
+                this.apiUrl = 'https://amirihayes-alphanumeric-ml.hf.space/predict';
             }
             async predict(imageData) {
                 const response = await fetch(this.apiUrl, {
