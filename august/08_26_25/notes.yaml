@@ -1,5 +1,5 @@
 Topic: Machine Learning
-Goal: Trained & hosted a CNN model w/ 90+% accuracy and low latency for classifying alphanumeric digits
+Goal: Trained & hosted a CNN model w/ 85% accuracy and low latency for classifying alphanumeric digits
 Deliverable_Link: https://alphanumericml.netlify.app/
 Resources:
   - My Data ~ Extended MNIST
