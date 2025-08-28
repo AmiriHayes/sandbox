@@ -6,9 +6,14 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>08 / 27 / 25: </em>  
+---  Topic: Basic Robotics  
+---  Worked on: Practice collecting data from arduino uno w/ putty library  
+---  Read up on: None  
+
 <em>08 / 26 / 25: </em>  
 ---  Topic: Machine Learning  
----  Worked on: Trained & hosted a CNN model w/ 90+% accuracy and low latency for classifying alphanumeric digits  
+---  Worked on: Trained & hosted a CNN model w/ 85% accuracy and low latency for classifying alphanumeric digits  
 ---  Read up on: None  
 ---  Link: https://alphanumericml.netlify.app/  
 
@@ -29,10 +34,4 @@
 ---  Worked on: Make a Calendar Site out of my YAML notes  
 ---  Read up on: None  
 ---  Link: https://amirihayes.github.io/sandbox/  
-
-<em>08 / 21 / 25: </em>  
----  Topic: Data Engineering  
----  Worked on: Playing around w/ programmatic Google Sheets  
----  Read up on: N/A (for shame)  
----  Link: https://docs.google.com/spreadsheets/d/13NriXejYairknIeESFsql4SMZNm05TKIKwxJyG4flbM/edit?usp=sharing  
 
