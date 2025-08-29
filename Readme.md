@@ -6,6 +6,12 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>08 / 28 / 25: </em>  
+---  Topic: Languages  
+---  Worked on: Practice Bash Scripting  
+---  Read up on: None  
+---  Link: N/A  
+
 <em>08 / 27 / 25: </em>  
 ---  Topic: Basic Robotics  
 ---  Worked on: Practice collecting data from arduino uno w/ putty library  
@@ -28,10 +34,4 @@
 ---  Worked on: Start Developing a Quote Sharing Social Media App (WIP)  
 ---  Read up on: None  
 ---  Link: https://quote-app-a8c50.web.app/member.html  
-
-<em>08 / 23 / 25: </em>  
----  Topic: Web Development  
----  Worked on: Make a Calendar Site out of my YAML notes  
----  Read up on: None  
----  Link: https://amirihayes.github.io/sandbox/  
 
