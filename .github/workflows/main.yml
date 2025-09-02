@@ -2,7 +2,7 @@ name: Check for Pushes & Remind - Discord
 
 on:
   schedule:
-    - cron: '0 18 * * *'  # Runs every day at 3 PM ET (7 PM UTC)
+    - cron: '45 10 * * *'  # Runs every day at 12:45 PM Madrid Time
   workflow_dispatch:  # Optional: allows manual runs for testing
 
 jobs:
