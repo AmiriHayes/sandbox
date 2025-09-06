@@ -7,7 +7,7 @@ from pathlib import Path
 today = datetime.date.today()
 month_name = today.strftime("%B").lower()
 base_dir = Path(__file__).resolve().parents[1]
-month_dir = base_dir / "august"
+month_dir = base_dir / "08_august"
 
 day_folders = []
 for folder in month_dir.iterdir():

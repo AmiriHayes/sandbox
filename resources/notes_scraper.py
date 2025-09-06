@@ -6,22 +6,26 @@ from pathlib import Path
 
 today = datetime.date.today()
 month_name = today.strftime("%B").lower()
-base_dir = Path("/home/runner/work/sandbox/sandbox")
-month_dir = base_dir / month_name
+base_dir = Path("/home/runner/work/sandbox/sandbox").resolve()
+
+august = Path("/home/runner/work/sandbox/sandbox/08_august")
+september = Path("/home/runner/work/sandbox/sandbox/09_september")
+months = [august, september]
 
 day_folders = []
-for folder in month_dir.iterdir():
-    if folder.is_dir():
-        try:
-            month, day, year = folder.name.split("_")
-            date = datetime.date(int("20" + year), int(month), int(day))
-            
-            notes_file = folder / "notes.yaml"
-            if notes_file.exists() and notes_file.stat().st_size > 0:
-                day_folders.append((date, folder))
+for month_dir in months:
+    for folder in month_dir.iterdir():
+        if folder.is_dir():
+            try:
+                month, day, year = folder.name.split("_")
+                date = datetime.date(int("20" + year), int(month), int(day))
+                
+                notes_file = folder / "notes.yaml"
+                if notes_file.exists() and notes_file.stat().st_size > 0:
+                    day_folders.append((date, folder))
 
-        except Exception:
-            continue
+            except Exception:
+                continue
 
 day_folders.sort(key=lambda x: x[0])
 last_five = [f for d, f in reversed(day_folders) if d <= today][:5]

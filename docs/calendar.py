@@ -8,28 +8,36 @@ from pathlib import Path
 
 today = datetime.date.today()
 month_name = today.strftime("%B").lower()
+months = []
 if os.environ.get("GITHUB_ACTIONS"):
-    base_dir = Path("/home/runner/work/sandbox/sandbox")
-    month_dir = Path("/home/runner/work/sandbox/sandbox/august")
+    base_dir = Path("/home/runner/work/sandbox/sandbox").resolve()
+    august = Path("/home/runner/work/sandbox/sandbox/08_august")
+    september = Path("/home/runner/work/sandbox/sandbox/09_september")
+    months.extend((august, september))
 else:
-    base_dir = Path("..").resolve() 
-    month_dir = Path(r"C:\Users\amkah\OneDrive\Documents\GitHub\sandbox\august")
-print(f"base dir: {base_dir.cwd()}")
-print(f"month dir: {month_dir.cwd()}")
+    base_dir = Path("../sandbox").resolve()
+    august = base_dir / "08_august"
+    september = base_dir / "09_september"
+    months.extend((august, september))
+
+print(f"\nbase dir: {base_dir}")
+print(f"august dir: {august.resolve()}")
+print(f"september dir: {september.resolve()}\n")
 
 day_folders = []
-for folder in month_dir.iterdir():
-    if folder.is_dir():
-        try:
-            month, day, year = folder.name.split("_")
-            date = datetime.date(int("20" + year), int(month), int(day))
-            
-            notes_file = folder / "notes.yaml"
-            if notes_file.exists() and notes_file.stat().st_size > 0:
-                day_folders.append((date, folder))
+for month_dir in months:
+    for folder in month_dir.iterdir():
+        if folder.is_dir():
+            try:
+                month, day, year = folder.name.split("_")
+                date = datetime.date(int("20" + year), int(month), int(day))
+                
+                notes_file = folder / "notes.yaml"
+                if notes_file.exists() and notes_file.stat().st_size > 0:
+                    day_folders.append((date, folder))
 
-        except Exception:
-            continue
+            except Exception:
+                continue
 
 notes_content = ""
 day_folders.sort(key=lambda x: x[0])
@@ -44,7 +52,7 @@ for folder in previous_days:
     notes_content += "\n"
 
 if os.environ.get("GITHUB_ACTIONS"):
-    output_file = Path("/home/runner/work/sandbox/sandbox/docs/calendar.jsonl")
+    output_file = Path("/home/runner/work/sandbox/sandbox/docs/calendar_2.jsonl")
 else:
     project_root = Path(__file__).parent.parent.resolve()
     output_file = project_root / "docs/calendar.jsonl"
