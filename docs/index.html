@@ -76,6 +76,7 @@
                 <h2>${note.Topic}</h2>
                 <p><strong>Goal:</strong> ${note.Goal || ''}</p>
                 <p><strong>Deliverable:</strong> ${note.Deliverable_Link ? `<a href="${note.Deliverable_Link}" target="_blank">Link</a>` : 'N/A'}</p>
+                <p><strong>See Code:</strong> ${note.repo_url ? `<a href="${note.repo_url}" target="_blank">Link</a>` : 'N/A'}</p>
                 <p><strong>Resources:</strong> ${note.Resources ? note.Resources.join(', ') : ''}</p>
                 <p><strong>Paper:</strong> ${note.Todays_Paper ? `<a href="${note.Todays_Paper_Link}" target="_blank">${note.Todays_Paper}</a>` : 'N/A'}</p>
                 <p><strong>Other Notes:</strong><br>${note.Other_Notes || ''}</p>

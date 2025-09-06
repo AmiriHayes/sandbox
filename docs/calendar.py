@@ -48,6 +48,8 @@ for folder in previous_days:
         data = yaml.safe_load(f)
     print(f"type data: {type(data)}")
     data["day"] = str(notes_file)
+    repo_day = str(notes_file.parent.relative_to(notes_file.parents[2]))
+    data["repo_url"] = f"https://github.com/AmiriHayes/sandbox/tree/main/{repo_day}"
     notes_content += str(json.dumps(data))
     notes_content += "\n"
 
