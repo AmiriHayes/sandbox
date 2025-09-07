@@ -6,7 +6,7 @@
 
 #### Automatic Updates | Last 5 Days: 
 
-<em>09 / 06 / 25: </em>  
+<em>09 / 07 / 25: </em>  
 ---  Topic: Machine Learning  
 ---  Worked on: None  
 ---  Read up on: None  
@@ -14,9 +14,8 @@
 
 <em>08 / 30 / 25: </em>  
 ---  Topic: Algorithms  
----  Worked on: None  
+---  Worked on: Practice BFS in JavaScript  
 ---  Read up on: None  
----  Link: N/A  
 
 <em>08 / 28 / 25: </em>  
 ---  Topic: Devops CI/CD  
