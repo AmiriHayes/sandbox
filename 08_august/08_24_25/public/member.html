@@ -85,6 +85,10 @@
             .quote-text {
                 font-size: 1.1rem;
                 margin-bottom: 0.5rem;
+                max-width: 450px; 
+                width: 100%;   
+                text-align: center;
+                margin: 0 auto;
             }
             .quote button {
                 margin-top: 0.5rem;
@@ -94,9 +98,10 @@
                 font-weight: bold;
                 cursor: pointer;
                 color: #FAF9F6;
+                margin-bottom: 1.5rem;
             }
             .quote-footer {
-                margin-top: 0.5rem;
+                margin-top: 1rem;
                 font-size: 0.8rem;
                 text-align: center;
                 opacity: 0.8;
@@ -117,17 +122,16 @@
             </div>
             <div class="quote_section">
                 <div class="quote-title">Quote Title Here</div>
-                <span class="user-quote">{date} from {username}</span>
+                <span class="user-quote">{date} shared by {username}</span>
                 <div class="quote">
                     <div class="quote-text">{quote}</div>
                     <div>&mdash; {author}, {source}</div>
                     <button>MORE ABOUT {author}</button>
                 </div>
-                <div class="quote-footer">[ {group} Quote # {quote_id} ]</div>
+                <div class="quote-footer">{group} Quote # {quote_id}</div>
             </div>
         </div>
 
-        
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
             import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
@@ -161,15 +165,15 @@
                 if (currentQuotes.length === 0) return;
                 const quote = currentQuotes[index];
                 document.querySelector(".header").style.backgroundColor = userColor;
-                document.querySelector(".quote-title").innerText = groupName + " Quote";
+                document.querySelector(".quote-title").innerText = groupName;
                 document.querySelector(".user-quote").innerText =
-                    new Date(quote.timestamp.toDate()).toLocaleDateString() + " from " + userName;
+                    new Date(quote.timestamp.toDate()).toLocaleDateString() + " shared by " + userName;
                 document.querySelector(".user-quote").style.color = userColor;
                 document.querySelector(".quote-text").innerText = "\n \"" + quote.text + "\"\n\n";
-                document.querySelector(".quote button").innerText = "MORE ABOUT " + quote.author;
+                document.querySelector(".quote button").innerText = "More about " + quote.author;
                 document.querySelector(".quote button").style.backgroundColor = userColor;
                 document.querySelector(".quote div:nth-child(2)").innerText = `— ${quote.author}, ${quote.source}`;
-                document.querySelector(".quote-footer").innerText = `[ ${groupName} Quote #${index + 1} ]`;
+                document.querySelector(".quote-footer").innerText = `- ${groupName} Quote #${index + 1} -`;
                 document.querySelector(".latest-label").style.display = "inline";
             }
 
@@ -180,6 +184,7 @@
                 const q = query(collection(db, "groups", groupId, "quotes"), orderBy("timestamp", "asc"));
                 const snap = await getDocs(q);
                 currentQuotes = snap.docs.map(doc => doc.data());
+                console.log("Loaded quotes:", currentQuotes);
                 currentIndex = currentQuotes.length - 1;
                 renderQuoteAt(currentIndex);
             }
