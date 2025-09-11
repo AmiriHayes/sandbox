@@ -6,6 +6,12 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>09 / 10 / 25: </em>  
+---  Topic: Web Development  
+---  Worked on: Worked on QuoteApp backend  
+---  Read up on: None  
+---  Link: https://quote-app-a8c50.web.app/member.html  
+
 <em>09 / 07 / 25: </em>  
 ---  Topic: Machine Learning  
 ---  Worked on: None  
@@ -27,10 +33,4 @@
 ---  Topic: Robotics  
 ---  Worked on: Practice collecting data from arduino uno w/ putty library  
 ---  Read up on: None  
-
-<em>08 / 26 / 25: </em>  
----  Topic: Machine Learning  
----  Worked on: Trained & hosted a CNN model w/ 85% accuracy and low latency for classifying alphanumeric digits  
----  Read up on: None  
----  Link: https://alphanumericml.netlify.app/  
 
