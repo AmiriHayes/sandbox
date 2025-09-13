@@ -6,6 +6,11 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>09 / 11 / 25: </em>  
+---  Topic: Machine Learning  
+---  Worked on: Train Image Captioner  
+---  Read up on: None  
+
 <em>09 / 10 / 25: </em>  
 ---  Topic: Web Development  
 ---  Worked on: Worked on QuoteApp backend  
@@ -28,9 +33,4 @@
 ---  Worked on: Practice Bash Scripting  
 ---  Read up on: None  
 ---  Link: N/A  
-
-<em>08 / 27 / 25: </em>  
----  Topic: Robotics  
----  Worked on: Practice collecting data from arduino uno w/ putty library  
----  Read up on: None  
 
