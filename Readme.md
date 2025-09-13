@@ -6,6 +6,12 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>09 / 12 / 25: </em>  
+---  Topic: Machine Learning  
+---  Worked on: Practiced basic matplotlib stuff  
+---  Read up on: node2vec - Scalable Feature Learning for Networks  
+---  Link: None  
+
 <em>09 / 11 / 25: </em>  
 ---  Topic: Machine Learning  
 ---  Worked on: Train Image Captioner  
@@ -27,10 +33,4 @@
 ---  Topic: Algorithms  
 ---  Worked on: Practice BFS in JavaScript  
 ---  Read up on: None  
-
-<em>08 / 28 / 25: </em>  
----  Topic: Devops CI/CD  
----  Worked on: Practice Bash Scripting  
----  Read up on: None  
----  Link: N/A  
 
