@@ -6,6 +6,12 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>09 / 13 / 25: </em>  
+---  Topic: Machine Learning  
+---  Worked on: Practiced basic networkx stuff  
+---  Read up on: Stochastic blockmodels and community structure in networks  
+---  Link: None  
+
 <em>09 / 12 / 25: </em>  
 ---  Topic: Machine Learning  
 ---  Worked on: Practiced basic matplotlib stuff  
@@ -28,9 +34,4 @@
 ---  Worked on: None  
 ---  Read up on: None  
 ---  Link: N/A  
-
-<em>08 / 30 / 25: </em>  
----  Topic: Algorithms  
----  Worked on: Practice BFS in JavaScript  
----  Read up on: None  
 
