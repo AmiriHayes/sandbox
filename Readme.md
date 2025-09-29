@@ -6,17 +6,20 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>09 / 14 / 25: </em>  
+---  Topic: Devops CI/CD  
+---  Worked on: Webscraping & searches for a faculty directory  
+---  Read up on: Graph Convolutional Networks for Text Classification  
+
 <em>09 / 13 / 25: </em>  
 ---  Topic: Machine Learning  
 ---  Worked on: Practiced basic networkx stuff  
 ---  Read up on: Stochastic blockmodels and community structure in networks  
----  Link: None  
 
 <em>09 / 12 / 25: </em>  
 ---  Topic: Machine Learning  
 ---  Worked on: Practiced basic matplotlib stuff  
 ---  Read up on: node2vec - Scalable Feature Learning for Networks  
----  Link: None  
 
 <em>09 / 11 / 25: </em>  
 ---  Topic: Machine Learning  
@@ -28,10 +31,4 @@
 ---  Worked on: Worked on QuoteApp backend  
 ---  Read up on: None  
 ---  Link: https://quote-app-a8c50.web.app/member.html  
-
-<em>09 / 07 / 25: </em>  
----  Topic: Machine Learning  
----  Worked on: None  
----  Read up on: None  
----  Link: N/A  
 
