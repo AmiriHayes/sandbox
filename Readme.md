@@ -6,6 +6,11 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>09 / 27 / 25: </em>  
+---  Topic: Machine Learning  
+---  Worked on: Develop and train a neural network from scratch  
+---  Read up on: Integrating Structural and Semantic Signals in TAG with BiGTex  
+
 <em>09 / 14 / 25: </em>  
 ---  Topic: Devops CI/CD  
 ---  Worked on: Webscraping & searches for a faculty directory  
@@ -25,10 +30,4 @@
 ---  Topic: Machine Learning  
 ---  Worked on: Train Image Captioner  
 ---  Read up on: None  
-
-<em>09 / 10 / 25: </em>  
----  Topic: Web Development  
----  Worked on: Worked on QuoteApp backend  
----  Read up on: None  
----  Link: https://quote-app-a8c50.web.app/member.html  
 
