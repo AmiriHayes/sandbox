@@ -13,16 +13,19 @@ if os.environ.get("GITHUB_ACTIONS"):
     base_dir = Path("/home/runner/work/sandbox/sandbox").resolve()
     august = Path("/home/runner/work/sandbox/sandbox/08_august")
     september = Path("/home/runner/work/sandbox/sandbox/09_september")
-    months.extend((august, september))
+    october = Path("/home/runner/work/sandbox/sandbox/10_october")
+    months.extend((august, september, october))
 else:
     base_dir = Path("../sandbox").resolve()
     august = base_dir / "08_august"
     september = base_dir / "09_september"
-    months.extend((august, september))
+    october = base_dir / "10_october"
+    months.extend((august, september, october))
 
 print(f"\nbase dir: {base_dir}")
-print(f"august dir: {august.resolve()}")
+print(f"august dir: {august.resolve()}\n")
 print(f"september dir: {september.resolve()}\n")
+print(f"october dir: {october.resolve()}\n")
 
 day_folders = []
 for month_dir in months:
@@ -54,7 +57,7 @@ for folder in previous_days:
     notes_content += "\n"
 
 if os.environ.get("GITHUB_ACTIONS"):
-    output_file = Path("/home/runner/work/sandbox/sandbox/docs/calendar_2.jsonl")
+    output_file = Path("/home/runner/work/sandbox/sandbox/docs/calendar.jsonl")
 else:
     project_root = Path(__file__).parent.parent.resolve()
     output_file = project_root / "docs/calendar.jsonl"

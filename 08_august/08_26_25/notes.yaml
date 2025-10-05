@@ -1,3 +1,4 @@
+Interesting_Project: true
 Topic: Machine Learning
 Goal: Trained & hosted a CNN model w/ 85% accuracy and low latency for classifying alphanumeric digits
 Deliverable_Link: https://alphanumericml.netlify.app/

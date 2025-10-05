@@ -22,6 +22,9 @@
         .fc-day-today {
             background-color: rgb(220, 246, 253) !important;
         }
+        mark {
+            background-color: lightblue;
+        }
         #modal {
             display: none;
             position: fixed;
@@ -74,6 +77,7 @@
             const content = document.getElementById('modal-content');
             content.innerHTML = `
                 <h2>${note.Topic}</h2>
+                ${note.Interesting_Project ? '<p><strong><mark>&nbsp;Top 5 Project!&nbsp;</mark></strong></p>' : ''}
                 <p><strong>Goal:</strong> ${note.Goal || ''}</p>
                 <p><strong>Deliverable:</strong> ${note.Deliverable_Link ? `<a href="${note.Deliverable_Link}" target="_blank">Link</a>` : 'N/A'}</p>
                 <p><strong>See Code:</strong> ${note.repo_url ? `<a href="${note.repo_url}" target="_blank">Link</a>` : 'N/A'}</p>
@@ -104,6 +108,13 @@
                     customTitle: { text: '' }
                 },
                 events: events,
+                dayCellDidMount: function(arg) {
+                    const dateStr = arg.date.toISOString().split('T')[0];
+                    const note = events.find(ev => ev.start === dateStr);
+                    if (note && note.extendedProps.Interesting_Project) {
+                        arg.el.style.backgroundColor = '#a7adba';
+                    }
+                },
                 dateClick: function(info) {
                     const clickedDate = info.dateStr;
                     const note = events.find(ev => ev.start === clickedDate);
@@ -118,7 +129,6 @@
                     titleBtn.onclick = () => window.open("https://github.com/AmiriHayes/sandbox", "_blank");
                 }
             });
-
             calendar.render();
         });
     </script>
