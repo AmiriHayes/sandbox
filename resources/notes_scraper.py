@@ -52,10 +52,10 @@ for folder in last_five:
     notes_content += f"---  Topic: {topic}  \n"
     notes_content += f"---  Worked on: {worked_on}  \n"
     if link:
-        notes_content += f"---  Read up on: {read_up_on}  \n"
+        notes_content += f"---  Read up on: '{read_up_on}'  \n"
         notes_content += f"---  Link: {link}  \n\n"
     else:
-        notes_content += f"---  Read up on: {read_up_on}  \n\n"
+        notes_content += f"---  Read up on: '{read_up_on}'  \n\n"
 
 output_file = Path("/home/runner/work/sandbox/sandbox/Readme.md")
 with open(output_file, "w", encoding="utf-8") as f:
