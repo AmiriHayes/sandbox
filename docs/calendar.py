@@ -14,18 +14,21 @@ if os.environ.get("GITHUB_ACTIONS"):
     august = Path("/home/runner/work/sandbox/sandbox/08_august")
     september = Path("/home/runner/work/sandbox/sandbox/09_september")
     october = Path("/home/runner/work/sandbox/sandbox/10_october")
-    months.extend((august, september, october))
+    november = Path("/home/runner/work/sandbox/sandbox/11_november")
+    months.extend((august, september, october, november))
 else:
     base_dir = Path("../sandbox").resolve()
     august = base_dir / "08_august"
     september = base_dir / "09_september"
     october = base_dir / "10_october"
-    months.extend((august, september, october))
+    november = base_dir / "11_november"
+    months.extend((august, september, october, november))
 
 print(f"\nbase dir: {base_dir}")
 print(f"august dir: {august.resolve()}\n")
 print(f"september dir: {september.resolve()}\n")
 print(f"october dir: {october.resolve()}\n")
+print(f"november dir: {november.resolve()}\n")
 
 day_folders = []
 for month_dir in months:
@@ -56,6 +59,21 @@ for folder in previous_days:
     notes_content += str(json.dumps(data))
     notes_content += "\n"
 
+research_notes_file = base_dir / "docs/research.jsonl"
+with open(research_notes_file, "r", encoding="utf-8") as f:
+    research_data = list(f)
+for json_str in research_data:
+    research_day = json_str[:-2]
+    research_focused_day = json.loads(research_day)
+
+    day = research_focused_day.get("day")
+    day_formatted = f"C:\\Users\\amkah\\OneDrive\\Documents\\GitHub\\sandbox\\{day[:2]}_{day[3:5]}_{day[6:]}\\notes.yaml"
+    project = research_focused_day.get("project")
+    notes_content += str(json.dumps({
+        "day": day_formatted,
+        "type": "research",
+        "project": project,})) + "\n"
+
 if os.environ.get("GITHUB_ACTIONS"):
     output_file = Path("/home/runner/work/sandbox/sandbox/docs/calendar.jsonl")
 else:
@@ -65,4 +83,4 @@ else:
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(notes_content)
 
-print(f"Wrote formatted notes from {len(previous_days)} non-empty days in {month_name} to {output_file}")
+print(f"Wrote formatted notes from {len(previous_days)+len(research_data)} non-empty days in {month_name} to {output_file}")
