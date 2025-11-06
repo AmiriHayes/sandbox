@@ -6,28 +6,28 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>10 / 05 / 25: </em>  
+---  Topic: Devops CI/CD  
+---  Worked on: added special projects to calendar site  
+---  Read up on: 'HARNESSING EXPLANATIONS - LLM-TO-LM INTERPRETER FOR ENHANCED TEXT-ATTRIBUTED GRAPH REPRESENTATION LEARNING'  
+
+<em>10 / 04 / 25: </em>  
+---  Topic: Machine Learning  
+---  Worked on: Speech to Text Transcription  
+---  Read up on: 'Exploring the Potential of Large Language Models (LLMs) in Learning on Graphs'  
+
 <em>09 / 28 / 25: </em>  
 ---  Topic: Machine Learning  
 ---  Worked on: Practice Pyomo Optimization Library  
----  Read up on: GCN ~ "SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS"  
+---  Read up on: 'GCN ~ SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS'  
 
 <em>09 / 27 / 25: </em>  
 ---  Topic: Machine Learning  
 ---  Worked on: Develop and train a neural network from scratch (no libraries, just OOP)  
----  Read up on: Integrating Structural and Semantic Signals in TAG with BiGTex  
+---  Read up on: 'Integrating Structural and Semantic Signals in TAG with BiGTex'  
 
 <em>09 / 14 / 25: </em>  
 ---  Topic: Devops CI/CD  
 ---  Worked on: Webscraping & searches for a faculty directory  
----  Read up on: Graph Convolutional Networks for Text Classification  
-
-<em>09 / 13 / 25: </em>  
----  Topic: Machine Learning  
----  Worked on: Practiced basic networkx stuff  
----  Read up on: Stochastic blockmodels and community structure in networks  
-
-<em>09 / 12 / 25: </em>  
----  Topic: Machine Learning  
----  Worked on: Practiced basic matplotlib stuff  
----  Read up on: node2vec - Scalable Feature Learning for Networks  
+---  Read up on: 'Graph Convolutional Networks for Text Classification'  
 
