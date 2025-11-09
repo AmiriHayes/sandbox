@@ -83,4 +83,4 @@ else:
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(notes_content)
 
-print(f"Wrote formatted notes from {len(previous_days)+len(research_data)} non-empty days in {month_name} to {output_file}")
+print(f"Wrote formatted notes from {len(previous_days)+len(research_data)} non-empty days up to {month_name} to {output_file}")
