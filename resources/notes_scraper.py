@@ -11,7 +11,9 @@ base_dir = Path("/home/runner/work/sandbox/sandbox").resolve()
 august = Path("/home/runner/work/sandbox/sandbox/08_august")
 september = Path("/home/runner/work/sandbox/sandbox/09_september")
 october = Path("/home/runner/work/sandbox/sandbox/10_october")
-months = [august, september, october]
+november = Path("/home/runner/work/sandbox/sandbox/11_november")
+december = Path("/home/runner/work/sandbox/sandbox/12_december")
+months = [august, september, october, november, december]
 
 day_folders = []
 for month_dir in months:
