@@ -15,20 +15,23 @@ if os.environ.get("GITHUB_ACTIONS"):
     september = Path("/home/runner/work/sandbox/sandbox/09_september")
     october = Path("/home/runner/work/sandbox/sandbox/10_october")
     november = Path("/home/runner/work/sandbox/sandbox/11_november")
-    months.extend((august, september, october, november))
+    december = Path("/home/runner/work/sandbox/sandbox/12_december")
+    months.extend((august, september, october, november, december))
 else:
     base_dir = Path("../sandbox").resolve()
     august = base_dir / "08_august"
     september = base_dir / "09_september"
     october = base_dir / "10_october"
     november = base_dir / "11_november"
-    months.extend((august, september, october, november))
+    december = base_dir / "12_december"
+    months.extend((august, september, october, november, december))
 
 print(f"\nbase dir: {base_dir}")
 print(f"august dir: {august.resolve()}\n")
 print(f"september dir: {september.resolve()}\n")
 print(f"october dir: {october.resolve()}\n")
 print(f"november dir: {november.resolve()}\n")
+print(f"december dir: {december.resolve()}\n")
 
 day_folders = []
 for month_dir in months:
