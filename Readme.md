@@ -6,6 +6,17 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>12 / 04 / 25: </em>  
+---  Topic: Web Development  
+---  Worked on: added a blog to my website using quarto  
+---  Read up on: 'DistilBERT'  
+---  Link: https://amirihayes.com/blogs/articles  
+
+<em>11 / 06 / 25: </em>  
+---  Topic: Devops CI/CD  
+---  Worked on: added research project days to calendar site  
+---  Read up on: 'None'  
+
 <em>10 / 05 / 25: </em>  
 ---  Topic: Devops CI/CD  
 ---  Worked on: added special projects to calendar site  
@@ -20,14 +31,4 @@
 ---  Topic: Machine Learning  
 ---  Worked on: Practice Pyomo Optimization Library  
 ---  Read up on: 'GCN ~ SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS'  
-
-<em>09 / 27 / 25: </em>  
----  Topic: Machine Learning  
----  Worked on: Develop and train a neural network from scratch (no libraries, just OOP)  
----  Read up on: 'Integrating Structural and Semantic Signals in TAG with BiGTex'  
-
-<em>09 / 14 / 25: </em>  
----  Topic: Devops CI/CD  
----  Worked on: Webscraping & searches for a faculty directory  
----  Read up on: 'Graph Convolutional Networks for Text Classification'  
 
