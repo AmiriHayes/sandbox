@@ -16,7 +16,8 @@ if os.environ.get("GITHUB_ACTIONS"):
     october = Path("/home/runner/work/sandbox/sandbox/10_october")
     november = Path("/home/runner/work/sandbox/sandbox/11_november")
     december = Path("/home/runner/work/sandbox/sandbox/12_december")
-    months.extend((august, september, october, november, december))
+    january = Path("/home/runner/work/sandbox/sandbox/01_january")
+    months.extend((august, september, october, november, december, january))
 else:
     base_dir = Path("../sandbox").resolve()
     august = base_dir / "08_august"
@@ -24,14 +25,18 @@ else:
     october = base_dir / "10_october"
     november = base_dir / "11_november"
     december = base_dir / "12_december"
-    months.extend((august, september, october, november, december))
+    january = base_dir / "01_january"
+    months.extend((august, september, october, november, december, january))
 
 print(f"\nbase dir: {base_dir}")
-print(f"august dir: {august.resolve()}\n")
-print(f"september dir: {september.resolve()}\n")
-print(f"october dir: {october.resolve()}\n")
-print(f"november dir: {november.resolve()}\n")
-print(f"december dir: {december.resolve()}\n")
+# print(f"august dir: {august.resolve()}\n")
+# print(f"september dir: {september.resolve()}\n")
+# print(f"october dir: {october.resolve()}\n")
+# print(f"november dir: {november.resolve()}\n")
+# print(f"december dir: {december.resolve()}\n")
+
+for month in months:
+    print(f"{month.name} exists: {month.exists()}")
 
 day_folders = []
 for month_dir in months:
