@@ -1,0 +1,9 @@
+Interesting_Project: True
+Topic: Web Development
+Goal: added a blog to my website using quarto
+Deliverable_Link: https://amirihayes.com/blogs/articles
+Resources:
+Todays_Paper: DistilBERT
+Todays_Paper_Link: https://arxiv.org/abs/1910.01108
+Other_Notes: |
+  check docs/index.html & docs/research.jsonl for code
