@@ -6,6 +6,12 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>12 / 06 / 25: </em>  
+---  Topic: Web Development  
+---  Worked on: added a blog to my website using quarto  
+---  Read up on: 'DistilBERT'  
+---  Link: https://amirihayes.com/blogs/articles  
+
 <em>12 / 04 / 25: </em>  
 ---  Topic: Web Development  
 ---  Worked on: added a blog to my website using quarto  
@@ -26,9 +32,4 @@
 ---  Topic: Machine Learning  
 ---  Worked on: Speech to Text Transcription  
 ---  Read up on: 'Exploring the Potential of Large Language Models (LLMs) in Learning on Graphs'  
-
-<em>09 / 28 / 25: </em>  
----  Topic: Machine Learning  
----  Worked on: Practice Pyomo Optimization Library  
----  Read up on: 'GCN ~ SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS'  
 
