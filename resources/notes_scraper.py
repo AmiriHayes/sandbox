@@ -8,12 +8,8 @@ today = datetime.date.today()
 month_name = today.strftime("%B").lower()
 base_dir = Path("/home/runner/work/sandbox/sandbox").resolve()
 
-august = Path("/home/runner/work/sandbox/sandbox/08_august")
-september = Path("/home/runner/work/sandbox/sandbox/09_september")
-october = Path("/home/runner/work/sandbox/sandbox/10_october")
-november = Path("/home/runner/work/sandbox/sandbox/11_november")
-december = Path("/home/runner/work/sandbox/sandbox/12_december")
-months = [august, september, october, november, december]
+# every month folder in the repo root, e.g. 08_august ... 12_december, 01_january
+months = sorted(p for p in base_dir.glob("[0-9][0-9]_*") if p.is_dir())
 
 day_folders = []
 for month_dir in months:
