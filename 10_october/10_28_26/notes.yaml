@@ -1,0 +1,9 @@
+Topic: Machine Learning
+Goal: paper reading day - the GPT-2 small IOI circuit & the Muon optimizer
+Deliverable_Link:
+Resources:
+  - https://kellerjordan.github.io/posts/muon/
+Todays_Paper: Interpretability in the Wild - a Circuit for Indirect Object Identification in GPT-2 Small
+Todays_Paper_Link: https://arxiv.org/abs/2211.00593
+Other_Notes: |
+  also read Keller Jordan's 'Muon - An optimizer for hidden layers in neural networks' (https://kellerjordan.github.io/posts/muon/)
