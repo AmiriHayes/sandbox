@@ -6,6 +6,22 @@
 
 #### Automatic Updates | Last 5 Days: 
 
+<em>10 / 28 / 26: </em>  
+---  Topic: Machine Learning  
+---  Worked on: paper reading day - the GPT-2 small IOI circuit & the Muon optimizer  
+---  Read up on: 'Interpretability in the Wild - a Circuit for Indirect Object Identification in GPT-2 Small'  
+
+<em>01 / 10 / 26: </em>  
+---  Topic: Machine Learning w/ Graphs  
+---  Worked on: Final Homophily Regression Project for DS677  
+---  Read up on: 'None'  
+---  Link: https://docs.google.com/document/d/1vJFey6FFxNlGH699vmJjwjeuPvaqbNFr_kj6S99aqzs/edit?tab=t.0  
+
+<em>01 / 09 / 26: </em>  
+---  Topic: None  
+---  Worked on: placeholder  
+---  Read up on: 'None'  
+
 <em>12 / 06 / 25: </em>  
 ---  Topic: Web Development  
 ---  Worked on: added a blog to my website using quarto  
@@ -17,19 +33,4 @@
 ---  Worked on: added a blog to my website using quarto  
 ---  Read up on: 'DistilBERT'  
 ---  Link: https://amirihayes.com/blogs/articles  
-
-<em>11 / 06 / 25: </em>  
----  Topic: Devops CI/CD  
----  Worked on: added research project days to calendar site  
----  Read up on: 'None'  
-
-<em>10 / 05 / 25: </em>  
----  Topic: Devops CI/CD  
----  Worked on: added special projects to calendar site  
----  Read up on: 'HARNESSING EXPLANATIONS - LLM-TO-LM INTERPRETER FOR ENHANCED TEXT-ATTRIBUTED GRAPH REPRESENTATION LEARNING'  
-
-<em>10 / 04 / 25: </em>  
----  Topic: Machine Learning  
----  Worked on: Speech to Text Transcription  
----  Read up on: 'Exploring the Potential of Large Language Models (LLMs) in Learning on Graphs'  
 
